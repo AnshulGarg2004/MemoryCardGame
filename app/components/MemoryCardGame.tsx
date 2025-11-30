@@ -170,6 +170,7 @@ export default function MemoryCardGame() {
   };
 
   const saveBest = (difficulty: string, moves: number, seconds: number, score: number) => {
+    if (typeof window === 'undefined') return null;
     const key = `memory-best-${difficulty}`;
     const existing = JSON.parse(localStorage.getItem(key) || 'null');
     const current = { moves, seconds, score, ts: Date.now() };
@@ -415,6 +416,7 @@ export default function MemoryCardGame() {
   };
 
   const getBestScore = (difficulty: string) => {
+    if (typeof window === 'undefined') return null;
     const key = `memory-best-${difficulty}`;
     return JSON.parse(localStorage.getItem(key) || 'null');
   };
