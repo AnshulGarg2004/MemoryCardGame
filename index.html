@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Memory Card Game</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" 
+    rel="stylesheet"
+  />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- Top Bar -->
+    <div class="topbar">
+      <div class="brand">
+        <span class="logo">🧠</span>
+        <h1>Memory Match</h1>
+      </div>
+
+      <div class="controls">
+        <label class="control">
+          <span>Difficulty</span>
+          <select id="difficulty">
+            <option value="4x4" selected>Easy (4x4)</option>
+            <option value="6x6">Medium (6x6)</option>
+            <option value="8x8">Hard (8x8)</option>
+          </select>
+        </label>
+
+        <label class="control">
+          <span>Theme</span>
+          <select id="theme">
+            <option value="emoji">Emoji</option>
+            <option value="animals">Animals</option>
+            <option value="fruits">Fruits</option>
+            <option value="tech">Tech</option>
+            <option value="shapes">Shapes</option>
+          </select>
+        </label>
+
+        <label class="control">
+          <span>Timer Mode</span>
+          <select id="timerMode">
+            <option value="up" selected>Count Up</option>
+            <option value="down">Count Down</option>
+          </select>
+        </label>
+
+        <button id="newGame" class="btn primary">New Game</button>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <span id="moves">0</span>
+          <span class="label">Moves</span>
+        </div>
+        <div class="stat">
+          <span id="time">00:00</span>
+          <span class="label">Time</span>
+        </div>
+        <div class="stat">
+          <span id="score">0</span>
+          <span class="label">Score</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Game Board -->
+    <div id="board" class="board" data-columns="4"></div>
+  </div>
+
+  <!-- Game Over Modal -->
+  <div 
+    id="modal" 
+    class="modal hidden" 
+    aria-hidden="true" 
+    role="dialog" 
+    aria-labelledby="modalTitle"
+  >
+    <div class="modal-dialog">
+      <h2 id="modalTitle">🎉 Congratulations!</h2>
+      <p>You matched all pairs.</p>
+
+      <div class="results">
+        <div>Moves: <span id="finalMoves">0</span></div>
+        <div>Time: <span id="finalTime">00:00</span></div>
+        <div>Score: <span id="finalScore">0</span></div>
+      </div>
+
+      <p>Best Performance:</p>
+      <div id="bestBox" class="best hidden">
+        <span id="bestText"></span>
+      </div>
+
+      <div class="modal-actions">
+        <button id="playAgain" class="btn primary">Play Again</button>
+        <button id="closeModal" class="btn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Restart Confirmation Modal -->
+  <div 
+    id="confirmModal" 
+    class="modal hidden" 
+    aria-hidden="true" 
+    role="dialog" 
+    aria-labelledby="confirmTitle"
+  >
+    <div class="modal-dialog">
+      <h2 id="confirmTitle">Restart Game?</h2>
+      <p>Your current progress will be lost. Are you sure you want to restart?</p>
+      <div class="modal-actions">
+        <button id="confirmYes" class="btn primary">Yes</button>
+        <button id="confirmNo" class="btn">No</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>

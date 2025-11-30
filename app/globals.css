@@ -1,0 +1,14 @@
+/* Minimal global styles for Memory Card Game */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-inter), Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
